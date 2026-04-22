@@ -9,7 +9,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/matrixx/config/common_full_phone.mk)
 
 # Inherit from monet device
 $(call inherit-product, device/xiaomi/monet/device.mk)
@@ -19,6 +19,18 @@ PRODUCT_DEVICE := monet
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := M2002J9G
+
+MATRIXX_MAINTAINER := alecchangod
+TARGET_CUSTOM_UDFPS := true
+WITH_BCR := true
+PERF_ANIM_OVERRIDE := true
+
+ifeq ($(WITH_GMS),true)
+TARGET_INCLUDE_PIXEL_LAUNCHER := true
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+WITH_GMS_COMMS_SUITE := true
+WITH_GMS_AICORE := true
+endif
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
